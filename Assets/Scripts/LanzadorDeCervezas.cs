@@ -12,7 +12,7 @@ public class LanzadorDeCervezas : MonoBehaviour {
 	//y lanzar un vaso de cerveza que va a pasar por la mesa
 	private Rigidbody _instanciaVasoDeCerveza;
 	private bool _canShoot=false;
-	private float _totalTime=1f;
+	private float _totalTime=1.5f;
 	private float _elapsedTime = 0f;
 
     // Use this for initialization
@@ -23,7 +23,6 @@ public class LanzadorDeCervezas : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		_elapsedTime+= Time.deltaTime;
-		//Debug.Log("elapsedTime= "+_elapsedTime);
 		if(_elapsedTime>_totalTime){
 			_canShoot=true;	
 		}
