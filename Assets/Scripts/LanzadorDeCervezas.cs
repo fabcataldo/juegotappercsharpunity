@@ -7,13 +7,13 @@ public class LanzadorDeCervezas : MonoBehaviour {
 	//por lo tanto se lo agrego
 	[SerializeField] private Rigidbody _vasoDeCerveza;
 	//variable que controla la velocidad con la que se lanza el vaso
-	[SerializeField] private float velocidad;
+	[SerializeField] private float _velocidad;
 	//instancia de un vaso de cerveza, que va a ser también de tipo Rigidbody, así puede actuar la física
 	//y lanzar un vaso de cerveza que va a pasar por la mesa
 	private Rigidbody _instanciaVasoDeCerveza;
 	private bool _canShoot=false;
-	private float _totalTime=3;
-	private float _elapsedTime = 0;
+	private float _totalTime=1f;
+	private float _elapsedTime = 0f;
 
     // Use this for initialization
     void Start () {
@@ -23,14 +23,15 @@ public class LanzadorDeCervezas : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		_elapsedTime+= Time.deltaTime;
-
+		//Debug.Log("elapsedTime= "+_elapsedTime);
 		if(_elapsedTime>_totalTime){
-			_canShoot=true;
-			_elapsedTime=0;
+			_canShoot=true;	
 		}
-		//detecto la entrada del botón izquierdo del mouse y detecto cuántos vasos tiré
-		if(Input.GetButtonUp("Fire1") && _canShoot ==true){
+		//detecto la entrada del botón izquierdo del mouse
+		if(Input.GetButtonUp("Fire1")&& _canShoot ==true){
 			createInstanciaVasoDeCerveza();
+			_canShoot=false;
+			_elapsedTime=0;
 		}
 	}
 
@@ -39,10 +40,11 @@ public class LanzadorDeCervezas : MonoBehaviour {
 		//Instantiate(objeto al cual le quiero crear una copia, posición del nuevo obj, orientación del nuevo obj)
 			_instanciaVasoDeCerveza=Instantiate(_vasoDeCerveza, transform.position, transform.rotation);
 		//la nueva cerveza se va a mover en el eje x con velocidad=velocidad	
-			_instanciaVasoDeCerveza.velocity=transform.TransformDirection(new Vector3(velocidad, 0, 0));
+			_instanciaVasoDeCerveza.velocity=transform.TransformDirection(new Vector3(_velocidad, 0, 0));
 		//se ignora la colisión del nuevo vaso creado con el lanzador
 		//Physics.IgnoreCollision(el colider del nuevo vaso creado, el colider desde donde se lanza el nuevo vaso
 		//o sea el lanzador)
 			Physics.IgnoreCollision(_instanciaVasoDeCerveza.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
 	}
+
 }

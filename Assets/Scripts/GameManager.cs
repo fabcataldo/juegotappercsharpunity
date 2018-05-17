@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	//Método que debería reiniciar el juego
+
 	void GameOver(){
 		SceneManager.LoadScene("Scene1");
 	}
