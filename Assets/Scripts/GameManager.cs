@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager _actualGameManager;
 
-	//Awake() es parecido a Start() nada mas que prepara las instancias de los GameObjects, el start ya los usa
+	//Awake() es parecido a Start() nada mas que prepara las instancias de los GameObjects, el Start() ya los usa
 	void Awake(){
 		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
 		//y que cuando cambie de escena, no se destruya
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void UpdateBoard(){
-		_boardText.text = "Puntaje: "+_score.ToString();
-		_boardText.text += "\nVidas del jugador: "+_lifes.ToString();
+		_boardText.text = "Puntaje actual: "+_score.ToString();
+		_boardText.text += "\nVidas restantes: "+_lifes.ToString();
 	}
 
 
