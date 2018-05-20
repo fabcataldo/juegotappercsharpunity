@@ -7,9 +7,10 @@ public class Comensal : MonoBehaviour {
 	[SerializeField] private GameManager _gm;
 	private Vector3 _originalPosition;
 	private Vector3 _nextPosition;
+	private bool _startMoving=false;
 
 	public void StartComensalMove(){
-		Start();
+		_startMoving=true;	
 	}
 
     void Start () {
@@ -18,8 +19,10 @@ public class Comensal : MonoBehaviour {
 	}
 	//un comensale se mueve cada tanto a lo largo de la mesa
     void Update () {
-		_nextPosition = Vector3.left*_speed*Time.deltaTime;
-		transform.Translate(_nextPosition);	
+		if(_startMoving){
+			_nextPosition = Vector3.left*_speed*Time.deltaTime;
+			transform.Translate(_nextPosition);	
+		}
     }
 
 	//cuando colisiona con una cerveza, se debe destruir la cerveza, y reiniciar la posición inicial del comensal
