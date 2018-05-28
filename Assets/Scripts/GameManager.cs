@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour {
 			_actualGameManager=this;
 			DontDestroyOnLoad(gameObject);
 		}
-		else{
-			if(_actualGameManager!=this){
-				Destroy(gameObject);
-			}
-		}
 	}
 
 	//devuelvo la instancia actual del GameManager
