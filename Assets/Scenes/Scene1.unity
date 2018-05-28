@@ -568,7 +568,6 @@ GameObject:
   - component: {fileID: 690919543}
   - component: {fileID: 690919542}
   - component: {fileID: 690919540}
-  - component: {fileID: 690919541}
   m_Layer: 0
   m_Name: Mesa 2
   m_TagString: Untagged
@@ -610,17 +609,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &690919541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 690919539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b50e038f5e0b4348a2c90217732ee69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &690919542
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -651,7 +639,6 @@ GameObject:
   - component: {fileID: 756362218}
   - component: {fileID: 756362217}
   - component: {fileID: 756362215}
-  - component: {fileID: 756362216}
   m_Layer: 0
   m_Name: Mesa 1
   m_TagString: Untagged
@@ -693,17 +680,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &756362216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 756362214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b50e038f5e0b4348a2c90217732ee69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &756362217
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1214,7 +1190,6 @@ GameObject:
   - component: {fileID: 1082456000}
   - component: {fileID: 1082455999}
   - component: {fileID: 1082455997}
-  - component: {fileID: 1082455998}
   m_Layer: 0
   m_Name: Mesa 4
   m_TagString: Untagged
@@ -1256,17 +1231,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1082455998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1082455996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b50e038f5e0b4348a2c90217732ee69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &1082455999
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1520,7 +1484,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1402615042}
   m_LocalRotation: {x: -0.5079316, y: 0.50565094, z: 0.4879915, w: 0.49818373}
-  m_LocalPosition: {x: 58.4, y: -1.1, z: 4.2}
+  m_LocalPosition: {x: 55.9, y: -1, z: 6.7}
   m_LocalScale: {x: 8.335474, y: 1.3955778, z: 1.0389146}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1677,7 +1641,6 @@ GameObject:
   - component: {fileID: 2068607445}
   - component: {fileID: 2068607444}
   - component: {fileID: 2068607442}
-  - component: {fileID: 2068607443}
   m_Layer: 0
   m_Name: Mesa 3
   m_TagString: Untagged
@@ -1719,17 +1682,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2068607443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2068607441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b50e038f5e0b4348a2c90217732ee69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &2068607444
 MeshFilter:
   m_ObjectHideFlags: 0
