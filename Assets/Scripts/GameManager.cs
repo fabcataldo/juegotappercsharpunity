@@ -23,8 +23,17 @@ public class GameManager : MonoBehaviour {
 		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
 		//y que cuando cambie de escena, no se destruya
 		if(ActualGameManager==null){
+			//Arranco guardando el objeto, en la primera jugada, y digo "che, no lo destruyas, ya que para
+			//la otra escena, tengo que consultar el score del objeto
 			ActualGameManager=this;
 			DontDestroyOnLoad(gameObject);
+		}
+		else{
+			if(ActualGameManager!=this){
+				//recargué la escena, como se crea una nueva instancia, vuelvo a asignarle a ActualGameManager 
+				//el obj creado
+				ActualGameManager=this;
+			}
 		}
 	}
 
