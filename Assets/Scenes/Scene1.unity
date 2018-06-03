@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -237,9 +237,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 756362218}
+  - {fileID: 690919543}
   - {fileID: 2068607445}
   - {fileID: 1082456000}
-  - {fileID: 690919543}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 690919543}
   - component: {fileID: 690919542}
   - component: {fileID: 690919540}
+  - component: {fileID: 690919541}
   m_Layer: 0
   m_Name: Mesa 2
   m_TagString: Untagged
@@ -609,6 +610,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &690919541
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 690919539}
+  m_Material: {fileID: 13400000, guid: a56a02d1d4472484cbc7601c44ac488f, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.2, z: 2}
+  m_Center: {x: 0, y: 0, z: -0.00000023841858}
 --- !u!33 &690919542
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -627,7 +640,7 @@ Transform:
   m_LocalScale: {x: 80, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 194461576}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &756362214
 GameObject:
@@ -639,6 +652,7 @@ GameObject:
   - component: {fileID: 756362218}
   - component: {fileID: 756362217}
   - component: {fileID: 756362215}
+  - component: {fileID: 756362216}
   m_Layer: 0
   m_Name: Mesa 1
   m_TagString: Untagged
@@ -680,6 +694,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &756362216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756362214}
+  m_Material: {fileID: 13400000, guid: a56a02d1d4472484cbc7601c44ac488f, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.2, z: 2}
+  m_Center: {x: 0.000000007450581, y: 0, z: 0}
 --- !u!33 &756362217
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1020,68 +1046,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -87.955, y: 103.991005, z: -12.603001}
---- !u!1 &914650142
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 914650145}
-  - component: {fileID: 914650144}
-  - component: {fileID: 914650143}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &914650143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 914650142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &914650144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 914650142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!4 &914650145
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 914650142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964290425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1154,7 @@ GameObject:
   - component: {fileID: 1082456000}
   - component: {fileID: 1082455999}
   - component: {fileID: 1082455997}
+  - component: {fileID: 1082455998}
   m_Layer: 0
   m_Name: Mesa 4
   m_TagString: Untagged
@@ -1231,6 +1196,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1082455998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082455996}
+  m_Material: {fileID: 13400000, guid: a56a02d1d4472484cbc7601c44ac488f, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1082455999
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1249,7 +1226,7 @@ Transform:
   m_LocalScale: {x: 80, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 194461576}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143544818
 GameObject:
@@ -1516,7 +1493,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1775998471}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 58.38422, y: 31.947708, z: 15.3}
+  m_LocalPosition: {x: 58.38422, y: 31.947708, z: 15.6}
   m_LocalScale: {x: 3.33238, y: 12.943663, z: 4.0566344}
   m_Children: []
   m_Father: {fileID: 444986982}
@@ -1611,7 +1588,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830700746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.99, y: -0.24, z: 0.32}
+  m_LocalPosition: {x: 3.99, y: -0.18, z: 0.05}
   m_LocalScale: {x: 0.30008578, y: 0.07725789, z: 0.24650978}
   m_Children: []
   m_Father: {fileID: 800881762}
@@ -1641,6 +1618,7 @@ GameObject:
   - component: {fileID: 2068607445}
   - component: {fileID: 2068607444}
   - component: {fileID: 2068607442}
+  - component: {fileID: 2068607443}
   m_Layer: 0
   m_Name: Mesa 3
   m_TagString: Untagged
@@ -1682,6 +1660,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2068607443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2068607441}
+  m_Material: {fileID: 13400000, guid: a56a02d1d4472484cbc7601c44ac488f, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2068607444
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1700,5 +1690,5 @@ Transform:
   m_LocalScale: {x: 80, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 194461576}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

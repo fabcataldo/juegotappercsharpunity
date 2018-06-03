@@ -28,9 +28,9 @@ public class Player : MonoBehaviour {
 			Directions direction = Directions.kNone;
 				//Checking User Input Behaviour
 				if(Input.GetAxis("Vertical") > 0) {
-					direction = Directions.kDown;
-				} else if (Input.GetAxis("Vertical") < 0) {
 					direction = Directions.kUp;
+				} else if (Input.GetAxis("Vertical") < 0) {
+					direction = Directions.kDown;
 				}
 				CalculateStep(direction);
 		}
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour {
 
 	void CalculateStep(Directions direction) {
 		//si me moví, evalúo si apreté tecla de arriba o de abajo
+		//Debug.Log("currenPos: "+_currentPositionIdx);
 		if(direction!=Directions.kNone){
 			_nextPosition = transform.position;
 			//Calculamos el proximo vector de posicion segun la direccion tomada.
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour {
 				//si no, si apreté abajo y el index es > a 0, me puedo ir a una mesa anterior
 				if(direction==Directions.kUp && _currentPositionIdx > 0)
 					_currentPositionIdx--;
-			//me muevo en el eje <
+			//me muevo en el eje z
 			_nextPosition.z = _wayPoints[_currentPositionIdx].position.z;
 			_isMoving = (direction != Directions.kNone);
 		}

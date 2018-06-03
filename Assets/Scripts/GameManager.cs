@@ -15,21 +15,22 @@ public class GameManager : MonoBehaviour {
 		return _score;
 	}
 
-	public static GameManager _actualGameManager;
+	//variable static cuyo contenido es compartido por todas las instancias de esta clase
+	public static GameManager ActualGameManager;
 
 	//Awake() es parecido a Start() nada mas que prepara las instancias de los GameObjects, el Start() ya los usa
 	void Awake(){
 		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
 		//y que cuando cambie de escena, no se destruya
-		if(_actualGameManager==null){
-			_actualGameManager=this;
+		if(ActualGameManager==null){
+			ActualGameManager=this;
 			DontDestroyOnLoad(gameObject);
 		}
 	}
 
 	//devuelvo la instancia actual del GameManager
 	public GameManager GetActualInstanceGameManager(){
-		return _actualGameManager;
+		return ActualGameManager;
 	}
 	
 	// Use this for initialization
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void StartGame(){
+		_score=0;
+		_lifes=3;
 		_player.setCanMove();
 		for(int i=0;i<_comensales.Length;i++){
 			_comensales[i].StartComensalMove();
