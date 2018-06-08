@@ -12,7 +12,7 @@ public class LanzadorDeCervezas : MonoBehaviour {
 	//y lanzar un vaso de cerveza que va a pasar por la mesa
 	private Rigidbody _instanciaVasoDeCerveza;
 	private bool _canShoot=false;
-	private float _totalTime=1.5f;
+	private float _totalTime=0.5f;
 	private float _elapsedTime = 0f;
 
     // Use this for initialization

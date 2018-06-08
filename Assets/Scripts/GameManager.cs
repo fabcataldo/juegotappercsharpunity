@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
 		//y que cuando cambie de escena, no se destruya
 		if(ActualGameManager==null){
+			//Debug.Log("Primer objeto");
 			//Arranco guardando el objeto, en la primera jugada, y digo "che, no lo destruyas, ya que para
 			//la otra escena, tengo que consultar el score del objeto
 			ActualGameManager=this;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
 		}
 		else{
 			if(ActualGameManager!=this){
+				//Debug.Log("Recargué la escena, el objeto ya no es el mismo. Se creó otra instancia");
 				//recargué la escena, como se crea una nueva instancia, vuelvo a asignarle a ActualGameManager 
 				//el obj creado
 				ActualGameManager=this;
@@ -58,8 +60,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void UpdateBoard(){
-		_boardText.text = "Puntaje actual: "+_score.ToString();
-		_boardText.text += "\nVidas restantes: "+_lifes.ToString();
+		_boardText.text = "Score: "+_score.ToString();
+		_boardText.text += "\nLifes: "+_lifes.ToString();
 	}
 
 

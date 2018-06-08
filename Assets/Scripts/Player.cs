@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 	[SerializeField] private float _lerpTime = 1f;
-	[SerializeField] private float _step = 1f;
+	[SerializeField] private float _step = 0.5f;
 	//_wayPoints: Arreglo de transforms que hace que el game object "Player" se pueda mover por los puntos
 	//contenidos en este arreglo
 	[SerializeField] private Transform [] _wayPoints;
@@ -27,10 +27,10 @@ public class Player : MonoBehaviour {
 		if(_canMove) {
 			Directions direction = Directions.kNone;
 				//Checking User Input Behaviour
-				if(Input.GetAxis("Vertical") > 0) {
-					direction = Directions.kUp;
-				} else if (Input.GetAxis("Vertical") < 0) {
-					direction = Directions.kDown;
+				if(Input.GetAxis("Horizontal") > 0) {
+					direction = Directions.kRight;
+				} else if (Input.GetAxis("Horizontal") < 0) {
+					direction = Directions.kLeft;
 				}
 				CalculateStep(direction);
 		}
@@ -47,11 +47,13 @@ public class Player : MonoBehaviour {
 			_nextPosition = transform.position;
 			//Calculamos el proximo vector de posicion segun la direccion tomada.
 			//si apreté arriba y el index no es más del largo del _waypoints-1, me muevo a la proxima mesa
-			if(direction==Directions.kDown && _currentPositionIdx < _wayPoints.Length-1)
+			//if(direction==Directions.kDown && _currentPositionIdx < _wayPoints.Length-1)
+			if(direction==Directions.kRight && _currentPositionIdx < _wayPoints.Length-1)
 				_currentPositionIdx++;
 			else
 				//si no, si apreté abajo y el index es > a 0, me puedo ir a una mesa anterior
-				if(direction==Directions.kUp && _currentPositionIdx > 0)
+				//if(direction==Directions.kUp && _currentPositionIdx > 0)
+				if(direction==Directions.kLeft && _currentPositionIdx > 0)
 					_currentPositionIdx--;
 			//me muevo en el eje z
 			_nextPosition.z = _wayPoints[_currentPositionIdx].position.z;
