@@ -8,6 +8,8 @@ public class LanzadorDeCervezas : MonoBehaviour {
 	[SerializeField] private Rigidbody _vasoDeCerveza;
 	//variable que controla la velocidad con la que se lanza el vaso
 	[SerializeField] private float _velocidad;
+	//Instancia del audio cuando el vaso se tira y se desliza en la mesa
+	[SerializeField] private AudioSource _beerSlidingAudio;
 	//instancia de un vaso de cerveza, que va a ser también de tipo Rigidbody, así puede actuar la física
 	//y lanzar un vaso de cerveza que va a pasar por la mesa
 	private Rigidbody _instanciaVasoDeCerveza;
@@ -28,6 +30,8 @@ public class LanzadorDeCervezas : MonoBehaviour {
 		}
 		//detecto la entrada del botón izquierdo del mouse
 		if(Input.GetButtonUp("Fire1")&& _canShoot ==true){
+			//si disparé un vaso, reproduzco el audio
+			_beerSlidingAudio.Play();
 			createInstanciaVasoDeCerveza();
 			_canShoot=false;
 			_elapsedTime=0;
