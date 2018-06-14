@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour {
 	public int getScore(){
 		return _score;
 	}
+	public void setScore(int sc){
+		_score=sc;
+	}
 
 	//variable static cuyo contenido es compartido por todas las instancias de esta clase
 	public static GameManager ActualGameManager;
@@ -23,18 +26,21 @@ public class GameManager : MonoBehaviour {
 		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
 		//y que cuando cambie de escena, no se destruya
 		if(ActualGameManager==null){
-			//Debug.Log("Primer objeto");
+			//Debug.Log("Soy el first!");
 			//Arranco guardando el objeto, en la primera jugada, y digo "che, no lo destruyas, ya que para
-			//la otra escena, tengo que consultar el score del objeto
+			//la otra escena, tengo que consultar el score del objeto"
 			ActualGameManager=this;
 			DontDestroyOnLoad(gameObject);
 		}
 		else{
 			if(ActualGameManager!=this){
-				//Debug.Log("Recargué la escena, el objeto ya no es el mismo. Se creó otra instancia");
-				//recargué la escena, como se crea una nueva instancia, vuelvo a asignarle a ActualGameManager 
-				//el obj creado
-				ActualGameManager=this;
+				//Debug.Log("Ya guardé la referencia anterior, sou, destruyo el gameObject que se acaba de crear!");
+				//Debug.Log("ActualGameManager: "+ActualGameManager);
+				//Debug.Log("gameObject: "+gameObject);
+				Destroy(gameObject);
+				//Le digo al gameObject que quedó de antes, que arranque el juego
+				UpdateBoard();
+				StartGame();
 			}
 		}
 	}
@@ -89,6 +95,8 @@ public class GameManager : MonoBehaviour {
 
 
 	void GameOver(){
+		//actualizo el score para que la escena GameOver pueda agarrar el score
+		ActualGameManager.setScore(_score);
 		SceneManager.LoadScene("GameOver");
 	}
 }
