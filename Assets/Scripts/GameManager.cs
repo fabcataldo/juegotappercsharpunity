@@ -30,14 +30,15 @@ public class GameManager : MonoBehaviour {
 			//Arranco guardando el objeto, en la primera jugada, y digo "che, no lo destruyas, ya que para
 			//la otra escena, tengo que consultar el score del objeto"
 			ActualGameManager=this;
+			//Debug.Log("gameObject: "+gameObject);
 			DontDestroyOnLoad(gameObject);
 		}
 		else{
 			if(ActualGameManager!=this){
 				//Debug.Log("Ya guardé la referencia anterior, sou, destruyo el gameObject que se acaba de crear!");
+				Destroy(gameObject);
 				//Debug.Log("ActualGameManager: "+ActualGameManager);
 				//Debug.Log("gameObject: "+gameObject);
-				Destroy(gameObject);
 				//Le digo al gameObject que quedó de antes, que arranque el juego
 				UpdateBoard();
 				StartGame();
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour {
 
 	void GameOver(){
 		//actualizo el score para que la escena GameOver pueda agarrar el score
+		//ya que el gameover lee el ActualGameManager
 		ActualGameManager.setScore(_score);
 		SceneManager.LoadScene("GameOver");
 	}

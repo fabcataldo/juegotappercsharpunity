@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
 	private float _elapsedTime = 0f;
 	private Vector3 _nextPosition;
-	private bool _canMove = true;
+	private bool _canMove = false;
 	private bool _isMoving = false;
 	
 	//index que sirve para calcular la siguiente mesa a moverse en el eje z
