@@ -96,9 +96,15 @@ public class GameManager : MonoBehaviour {
 
 
 	void GameOver(){
-		//actualizo el score para que la escena GameOver pueda agarrar el score
-		//ya que el gameover lee el ActualGameManager
-		ActualGameManager.setScore(_score);
-		SceneManager.LoadScene("GameOver");
+		if(SceneManager.sceneCountInBuildSettings==1){
+			SceneManager.LoadScene("Scene1");
+		}
+		else{
+			//actualizo el score para que la escena GameOver pueda agarrar el score
+			//ya que el gameover lee el ActualGameManager
+			ActualGameManager.setScore(_score);
+			SceneManager.LoadScene("GameOver");
+		}
+		
 	}
 }

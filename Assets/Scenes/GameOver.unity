@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2063595841}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &623755091
@@ -938,6 +938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027855a41e120264a8da482de43538cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 2063595842}
+  - {fileID: 820340333}
   _totalScore: {fileID: 239925963}
 --- !u!224 &1559034708
 RectTransform:

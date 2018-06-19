@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour {
 	private GameManager _gm;
+	[SerializeField] private Transform[] buttons;
 	[SerializeField] private Text _totalScore;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -22,10 +24,11 @@ public class GameOver : MonoBehaviour {
 	}
 
 	public void RestartGame(){
-		SceneManager.LoadScene("Scene1");
+			SceneManager.LoadScene("Scene1");
+
 	}
 
 	public void ExitGame(){
-		Application.Quit();
+			Application.Quit();
 	}
 }
