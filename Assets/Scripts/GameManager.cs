@@ -19,10 +19,34 @@ public class GameManager : MonoBehaviour {
 	}
 
 	//variable static cuyo contenido es compartido por todas las instancias de esta clase
-	public static GameManager ActualGameManager;
+	public static GameObject singleton=null;
 
 	//Awake() es parecido a Start() nada mas que prepara las instancias de los GameObjects, el Start() ya los usa
 	void Awake(){
+		//Fuente: http://wiki.unity3d.com/index.php/Singleton
+		if ( FindObjectsOfType<GameManager>().Length > 1 ){
+			Debug.LogError("[Singleton] Something went really wrong " +
+					" - there should never be more than 1 singleton!" +
+					" Reopening the scene might fix it.");
+			singleton = FindObjectOfType<GameObject>();
+		}
+		if (singleton == null){
+			singleton = new GameObject();
+			singleton.AddComponent<GameManager>();
+			singleton.name = typeof(GameManager).ToString();
+			DontDestroyOnLoad(singleton);
+			Debug.Log("[Singleton] An instance of " + typeof(GameManager) + 
+					" is needed in the scene, so '" + singleton +
+					"' was created with DontDestroyOnLoad.");
+			UpdateBoard();
+			StartGame();
+		} else {
+			Debug.Log("[Singleton] Using instance already created: " +	singleton.name);
+		}
+		//GetActualInstanceGameManager();
+		//DontDestroyOnLoad(ActualGameManager);
+		
+		/*
 		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
 		//y que cuando cambie de escena, no se destruya
 		if(ActualGameManager==null){
@@ -44,11 +68,12 @@ public class GameManager : MonoBehaviour {
 				StartGame();
 			}
 		}
+		 */
 	}
 
 	//devuelvo la instancia actual del GameManager
 	public GameManager GetActualInstanceGameManager(){
-		return ActualGameManager;
+		return singleton.GetComponent<GameManager>();
 	}
 	
 	// Use this for initialization
@@ -102,7 +127,7 @@ public class GameManager : MonoBehaviour {
 		else{
 			//actualizo el score para que la escena GameOver pueda agarrar el score
 			//ya que el gameover lee el ActualGameManager
-			ActualGameManager.setScore(_score);
+			singleton.GetComponent<GameManager>().setScore(_score);
 			SceneManager.LoadScene("GameOver");
 		}
 		

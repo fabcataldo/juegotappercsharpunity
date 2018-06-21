@@ -25,7 +25,6 @@ public class GameOver : MonoBehaviour {
 
 	public void RestartGame(){
 			SceneManager.LoadScene("Scene1");
-
 	}
 
 	public void ExitGame(){
