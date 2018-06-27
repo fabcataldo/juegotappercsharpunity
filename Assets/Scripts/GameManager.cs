@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour {
 	
 	private int _lifes=3;
 
-
-
 	//variable static cuyo contenido es compartido por todas las instancias de esta clase
 	//public static GameObject singleton=null;
 
@@ -88,12 +86,7 @@ public class GameManager : MonoBehaviour {
 			SceneManager.LoadScene("Scene1");
 		}
 		else{
-			//actualizo el score para que la escena GameOver pueda agarrar el score
-			//ya que el gameover lee el ActualGameManager
-			//singleton.GetComponent<GameManager>().setScore(_score);
-			//GameManager.Instance.setScore(_score);
 			SceneManager.LoadScene("GameOver");
 		}
-		
 	}
 }

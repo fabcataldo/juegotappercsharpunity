@@ -10,11 +10,8 @@ public class GameOver : MonoBehaviour {
 	[SerializeField] private Transform[] buttons;
 	[SerializeField] private Text _totalScore;
 	
-
 	// Use this for initialization
 	void Start () {
-		//obtengo la referencia del GameManager
-		
 		//le pongo texto al Total Score Board de la escena del Game Over
 		_totalScore.text = $"Puntaje total: {Constants.SCORE} puntos";	
 	}
