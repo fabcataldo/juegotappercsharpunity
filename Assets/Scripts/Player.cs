@@ -25,6 +25,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(_canMove) {
+			
+			
 			Directions direction = Directions.kNone;
 				//Checking User Input Behaviour
 				if(Input.GetAxis("Horizontal") > 0) {

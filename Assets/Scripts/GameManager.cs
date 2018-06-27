@@ -8,82 +8,46 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private TextMesh _boardText;
 	[SerializeField] private Player _player;
 	[SerializeField] Comensal[] _comensales;
-	private int _score=0;
+	
 	private int _lifes=3;
 
-	public int getScore(){
-		return _score;
-	}
-	public void setScore(int sc){
-		_score=sc;
-	}
+
 
 	//variable static cuyo contenido es compartido por todas las instancias de esta clase
-	public static GameObject singleton=null;
+	//public static GameObject singleton=null;
 
-	//Awake() es parecido a Start() nada mas que prepara las instancias de los GameObjects, el Start() ya los usa
-	void Awake(){
-		//Fuente: http://wiki.unity3d.com/index.php/Singleton
-		if ( FindObjectsOfType<GameManager>().Length > 1 ){
-			Debug.LogError("[Singleton] Something went really wrong " +
-					" - there should never be more than 1 singleton!" +
-					" Reopening the scene might fix it.");
-			singleton = FindObjectOfType<GameObject>();
-		}
-		if (singleton == null){
-			singleton = new GameObject();
-			singleton.AddComponent<GameManager>();
-			singleton.name = typeof(GameManager).ToString();
-			DontDestroyOnLoad(singleton);
-			Debug.Log("[Singleton] An instance of " + typeof(GameManager) + 
-					" is needed in the scene, so '" + singleton +
-					"' was created with DontDestroyOnLoad.");
-			UpdateBoard();
-			StartGame();
-		} else {
-			Debug.Log("[Singleton] Using instance already created: " +	singleton.name);
-		}
-		//GetActualInstanceGameManager();
-		//DontDestroyOnLoad(ActualGameManager);
+/* 
+	private static GameManager _instance = null;
+	public static GameManager Instance {
 		
-		/*
-		//creo una sola instancia para _actualGameManager, y hago que sobreviva en todo el juego
-		//y que cuando cambie de escena, no se destruya
-		if(ActualGameManager==null){
-			//Debug.Log("Soy el first!");
-			//Arranco guardando el objeto, en la primera jugada, y digo "che, no lo destruyas, ya que para
-			//la otra escena, tengo que consultar el score del objeto"
-			ActualGameManager=this;
-			//Debug.Log("gameObject: "+gameObject);
-			DontDestroyOnLoad(gameObject);
-		}
-		else{
-			if(ActualGameManager!=this){
-				//Debug.Log("Ya guardé la referencia anterior, sou, destruyo el gameObject que se acaba de crear!");
-				Destroy(gameObject);
-				//Debug.Log("ActualGameManager: "+ActualGameManager);
-				//Debug.Log("gameObject: "+gameObject);
-				//Le digo al gameObject que quedó de antes, que arranque el juego
-				UpdateBoard();
-				StartGame();
+		get {
+			if(_instance == null) {
+				_instance = FindObjectOfType<GameManager>();
+				if(_instance == null) {
+					GameObject gameManagerObject = new GameObject("GameManager");
+					_instance = gameManagerObject.AddComponent<GameManager>();
+					DontDestroyOnLoad(gameManagerObject);
+				} 
 			}
-		}
-		 */
-	}
 
-	//devuelvo la instancia actual del GameManager
-	public GameManager GetActualInstanceGameManager(){
-		return singleton.GetComponent<GameManager>();
+			return _instance;
+		}
 	}
+*/
 	
 	// Use this for initialization
 	void Start () {
+		Constants.SCORE = 0;
+		_comensales = FindObjectsOfType<Comensal>();
+		_boardText = GameObject.FindGameObjectWithTag("BoardText").GetComponent<TextMesh>();
+		_player = FindObjectOfType<Player>();
+
 		UpdateBoard();
 		StartGame();
 	}
 	
 	public void StartGame(){
-		_score=0;
+		Constants.SCORE = 0;
 		_lifes=3;
 		_player.setCanMove();
 		for(int i=0;i<_comensales.Length;i++){
@@ -92,8 +56,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void UpdateBoard(){
-		_boardText.text = "Score: "+_score.ToString();
-		_boardText.text += "\nLifes: "+_lifes.ToString();
+		_boardText.text = $"Score: {Constants.SCORE} \nLifes: {_lifes}";
 	}
 
 
@@ -102,7 +65,7 @@ public class GameManager : MonoBehaviour {
 		AddScore();
 	}
 	void AddScore(){
-		_score+=10;
+		Constants.SCORE += 10;
 		UpdateBoard();
 	}
 
@@ -127,7 +90,8 @@ public class GameManager : MonoBehaviour {
 		else{
 			//actualizo el score para que la escena GameOver pueda agarrar el score
 			//ya que el gameover lee el ActualGameManager
-			singleton.GetComponent<GameManager>().setScore(_score);
+			//singleton.GetComponent<GameManager>().setScore(_score);
+			//GameManager.Instance.setScore(_score);
 			SceneManager.LoadScene("GameOver");
 		}
 		

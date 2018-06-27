@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Comensal : MonoBehaviour {
 	[SerializeField] private float _speed;
-	[SerializeField] private GameManager _gm;
+	[SerializeField] private GameManager _gameManager;
 	private Vector3 _originalPosition;
 	private Vector3 _nextPosition;
 	private bool _startMoving=false;
@@ -32,12 +32,14 @@ public class Comensal : MonoBehaviour {
             //que se destruya ese prefab
 			Destroy(col.gameObject);
 			//Cada vez que un comensal toma un vaso, son 10 pts obtenidos
-			_gm.UpdateScore(); //el gamemanager debería ver esta variable y decir "aumentar score del jugador"
+			_gameManager.UpdateScore();
+			//_gm.UpdateScore(); //el gamemanager debería ver esta variable y decir "aumentar score del jugador"
 		}		
 		else{
 		//si choco con un gameobject vacío que puse al final de las mesas, descuento una vida y reinicio posición
 			if(col.gameObject.tag == "ComensalColliderInvisible"){
-				_gm.PlayerDiscountLife();
+				
+				_gameManager.PlayerDiscountLife();
 			}
 		}
 		ResetPosition();

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 public class GameOver : MonoBehaviour {
-	private GameManager _gm;
+	
 	[SerializeField] private Transform[] buttons;
 	[SerializeField] private Text _totalScore;
 	
@@ -14,9 +14,9 @@ public class GameOver : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//obtengo la referencia del GameManager
-		_gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		
 		//le pongo texto al Total Score Board de la escena del Game Over
-		_totalScore.text = _totalScore.text+_gm.GetActualInstanceGameManager().getScore().ToString()+" puntos";	
+		_totalScore.text = $"Puntaje total: {Constants.SCORE} puntos";	
 	}
 	
 	// Update is called once per frame
