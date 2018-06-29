@@ -11,9 +11,6 @@ public class GameManager : MonoBehaviour {
 	
 	private int _lifes=3;
 
-	//variable static cuyo contenido es compartido por todas las instancias de esta clase
-	//public static GameObject singleton=null;
-
 /* 
 	private static GameManager _instance = null;
 	public static GameManager Instance {
@@ -36,6 +33,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Constants.SCORE = 0;
+		_lifes=3;
 		_comensales = FindObjectsOfType<Comensal>();
 		_boardText = GameObject.FindGameObjectWithTag("BoardText").GetComponent<TextMesh>();
 		_player = FindObjectOfType<Player>();
@@ -45,8 +43,6 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void StartGame(){
-		Constants.SCORE = 0;
-		_lifes=3;
 		_player.setCanMove();
 		for(int i=0;i<_comensales.Length;i++){
 			_comensales[i].StartComensalMove();

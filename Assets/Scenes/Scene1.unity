@@ -1706,8 +1706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f6d45750d03334488f5942092feb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lerpTime: 1
-  _step: 0.5
+  _lerpTime: 0.7
+  _step: 1
   _wayPoints:
   - {fileID: 756362218}
   - {fileID: 690919543}

@@ -33,12 +33,10 @@ public class Comensal : MonoBehaviour {
 			Destroy(col.gameObject);
 			//Cada vez que un comensal toma un vaso, son 10 pts obtenidos
 			_gameManager.UpdateScore();
-			//_gm.UpdateScore(); //el gamemanager debería ver esta variable y decir "aumentar score del jugador"
 		}		
 		else{
 		//si choco con un gameobject vacío que puse al final de las mesas, descuento una vida y reinicio posición
 			if(col.gameObject.tag == "ComensalColliderInvisible"){
-				
 				_gameManager.PlayerDiscountLife();
 			}
 		}

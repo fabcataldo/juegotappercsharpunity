@@ -48,6 +48,7 @@ public class Player : MonoBehaviour {
 			//Calculamos el proximo vector de posicion segun la direccion tomada.
 			//si apreté arriba y el index no es más del largo del _waypoints-1, me muevo a la proxima mesa
 			//if(direction==Directions.kDown && _currentPositionIdx < _wayPoints.Length-1)
+			//LO CAMBIÉ PARA ADAPTARLO A VR
 			if(direction==Directions.kRight && _currentPositionIdx < _wayPoints.Length-1)
 				_currentPositionIdx++;
 			else
